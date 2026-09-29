@@ -68,3 +68,10 @@ html:lang(th) .body-copy,html:lang(th) .card-copy p,html:lang(th) .intro{line-he
  .site-header{gap:14px;padding:10px}
  .site-header .utility-bar select:focus-visible{outline-width:2px;outline-offset:2px}
 }
+/* Inset navigation chevrons from each tab's rounded edge. */
+.site-header .menu-toggle{margin-right:8px}
+@media(max-width:640px){.site-header .menu-toggle{margin-right:6px}}
+/* Persistent navigation with an opaque surface above scrolling content. */
+.site-header{position:sticky;top:12px;background:#0d0a1c;z-index:30;box-shadow:0 8px 24px #0004}
+html{scroll-padding-top:112px}
+@media(max-width:640px){.site-header{top:8px}html{scroll-padding-top:100px}}
