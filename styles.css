@@ -75,3 +75,15 @@ html:lang(th) .body-copy,html:lang(th) .card-copy p,html:lang(th) .intro{line-he
 .site-header{position:sticky;top:12px;background:#0d0a1c;z-index:30;box-shadow:0 8px 24px #0004}
 html{scroll-padding-top:112px}
 @media(max-width:640px){.site-header{top:8px}html{scroll-padding-top:100px}}
+/* Language menu shares the navigation dropdown surface and selection treatment. */
+.language-trigger{display:flex;align-items:center;justify-content:space-between;gap:12px;width:180px;min-height:44px;padding:8px 16px;border:1px solid var(--line);border-radius:12px;background:#131021;font-size:.9375rem}
+.language-trigger:hover,.language-trigger[aria-expanded=true]{background:#261b3e;border-color:var(--purple)}
+.language-globe{display:none}.language-trigger .chevron{flex-shrink:0}
+.site-header .utility-bar{position:static}.site-header .utility-bar:has(.language-trigger):before{display:none}
+.language-menu{right:0;width:240px;max-width:calc(100vw - 32px);padding:16px;max-height:calc(100dvh - 130px);overflow-y:auto}
+.language-menu button{display:flex;align-items:center;width:100%;min-height:44px;padding:10px 12px;text-align:left;background:transparent;border-radius:10px;font-size:1rem;line-height:1.5;color:var(--muted)}
+.language-menu button:hover,.language-menu button:focus-visible{background:#382659;color:var(--text)}
+.language-menu button[aria-checked=true]{color:var(--purple);background:#261b3e}
+.language-menu button[aria-checked=true]:after{content:'✓';margin-left:auto;padding-left:16px}
+@media(max-width:800px){.language-trigger{width:172px}}
+@media(max-width:640px){.language-trigger{width:46px;padding:8px 6px;gap:4px}.language-globe{display:block;font-size:18px}.language-name{display:none}.language-trigger .chevron{width:7px;height:7px}.language-menu{padding:16px}.language-trigger:focus-visible{outline-width:2px;outline-offset:2px}}
