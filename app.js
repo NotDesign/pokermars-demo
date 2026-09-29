@@ -72,3 +72,9 @@
   });
   updateTop();
 })();
+// The two panels remain in the DOM so language changes update both variants.
+document.querySelectorAll('.flow-tabs').forEach(list=>{
+ const tabs=[...list.querySelectorAll('[role=tab]')];
+ const activate=tab=>tabs.forEach(t=>{const selected=t===tab;t.setAttribute('aria-selected',String(selected));t.tabIndex=selected?0:-1;document.getElementById(t.getAttribute('aria-controls')).hidden=!selected;});
+ tabs.forEach((tab,i)=>{tab.addEventListener('click',()=>activate(tab));tab.addEventListener('keydown',e=>{let n;if(e.key==='ArrowRight')n=(i+1)%tabs.length;if(e.key==='ArrowLeft')n=(i+tabs.length-1)%tabs.length;if(e.key==='Home')n=0;if(e.key==='End')n=tabs.length-1;if(n!==undefined){e.preventDefault();activate(tabs[n]);tabs[n].focus();}});});
+});
